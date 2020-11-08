@@ -4,7 +4,7 @@ import { data } from './datos';
 fixture('pruebas del modulo mi cuenta')
     .page('http://automationpractice.com/');
 
-test('Busqueda sin resultados', async t => {
+test('Automation06 : Busqueda sin resultados', async t => {
 
     await t
     .typeText(page.searchfield, data.noresults)
@@ -14,10 +14,11 @@ test('Busqueda sin resultados', async t => {
 
     await t
     .expect(page.noresults.innerText).contains('No results were found for your search')
+    .takeScreenshot()
 
 });
 
-test('Busqueda con resultados y agregar a carrito', async t => {
+test('Automation07 : Busqueda con resultados y agregar a carrito', async t => {
 
     await t
     .typeText(page.searchfield, data.product)
@@ -33,5 +34,6 @@ test('Busqueda con resultados y agregar a carrito', async t => {
 
     await t
     .expect(page.checkout.innerText).contains('Proceed to checkout')
+    .takeScreenshot()
 
 });
